@@ -1,10 +1,11 @@
 ifeq ($(OS),Windows_NT)
-  GRADLEW=.\gradlew
-  BIN_APP=.\build\install\app\bin\app
+  SLASH='\'
 else
-  GRADLEW=./gradlew
-  BIN_APP=./build/install/app/bin/app
+  SLASH='/'
 endif
+
+GRADLEW=.$(SLASH)gradlew
+BIN_APP=.$(SLASH)build$(SLASH)install$(SLASH)app$(SLASH)bin$(SLASH)app
 
 clean: # Очистить дистрибутив
 	$(GRADLEW) clean
