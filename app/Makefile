@@ -7,6 +7,9 @@ endif
 GRADLEW=.$(SLASH)gradlew
 BIN_APP=.$(SLASH)build$(SLASH)install$(SLASH)app$(SLASH)bin$(SLASH)app
 
+lint: # Проверить кодстайл
+	$(GRADLEW) checkstyleMain
+
 clean: # Очистить дистрибутив
 	$(GRADLEW) clean
 

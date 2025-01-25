@@ -3,6 +3,7 @@ version = "1.0-SNAPSHOT"
 
 plugins {
     application
+    checkstyle
     id("java")
     id("com.github.ben-manes.versions") version "0.52.0"
 }
