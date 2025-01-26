@@ -29,6 +29,7 @@ public class Even {
                 questionNumber += 1;
             } else {
                 System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'.");
+                System.out.println("Let's try again, " + Greet.getUserName() + "!");
                 break;
             }
         }
