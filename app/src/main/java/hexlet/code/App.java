@@ -1,5 +1,9 @@
 package hexlet.code;
 
+import hexlet.code.games.Calc;
+import hexlet.code.games.Even;
+import hexlet.code.games.Greet;
+
 import java.util.Scanner;
 
 public class App {
@@ -16,13 +20,13 @@ public class App {
 
         switch (choice) {
             case 3:
-                Calc.start();
+                Engine.play(new Calc());
                 break;
             case 2:
-                Even.start();
+                Engine.play(new Even());
                 break;
             case 1:
-                Greet.getByName();
+                Greet.user();
                 break;
             case 0:
                 System.exit(0);

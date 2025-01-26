@@ -5,3 +5,6 @@
 
 #### Модуль 5
 ![img.png](assets/module-5.png)
+
+#### Модуль 6
+![img.png](assets/module-6.png)
