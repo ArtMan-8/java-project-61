@@ -1,39 +1,40 @@
 package hexlet.code.games;
 
-import java.util.Random;
+import hexlet.code.Utils;
 
-public class Calc implements Game {
-    private final Random random = new Random();
+public class Calc {
+    private static final int FIVE_NUMBER = 5;
 
-    private String answer = "";
+    private static final int TEN_NUMBER = 10;
 
-    public String getRule() {
+    public static String getRule() {
         return "What is the result of the expression?";
     }
 
-    public String getAnswer() {
-        return this.answer;
+    public static String[][] generateRounds(int count) {
+        String[][] rounds = new String[count][2];
+
+        for (int i = 0; i < count; i++) {
+            int randomFirstNumber = Utils.getRandomNumber(0, FIVE_NUMBER);
+            int randomSecondNumber = Utils.getRandomNumber(FIVE_NUMBER, TEN_NUMBER);
+            char operation = getRandomOperator();
+
+            String question = randomFirstNumber + " " + operation + " " + randomSecondNumber;
+            String answer = Integer.toString(getCalculation(randomFirstNumber, randomSecondNumber, operation));
+
+            rounds[i] = new String[]{question, answer};
+        }
+
+        return rounds;
     }
 
-    public String getQuestion() {
-        int randomFirstNumber = this.random.nextInt(0, 50);
-        int randomSecondNumber = this.random.nextInt(50, 100);
-        char operation = this.getRandomOperator();
-
-        String question = randomFirstNumber + " " + operation + " " + randomSecondNumber;
-        int answer = this.getCalculation(randomFirstNumber, randomSecondNumber, operation);
-        this.answer = Integer.toString(answer);
-
-        return question;
-    }
-
-    private char getRandomOperator() {
+    private static char getRandomOperator() {
         char[] operators = {'+', '-', '*'};
-        int operatorIndex = this.random.nextInt(0 ,3);
+        int operatorIndex = Utils.getRandomNumber(0, operators.length);
         return operators[operatorIndex];
     }
 
-    private int getCalculation(int first, int second, char operation) {
+    private static int getCalculation(int first, int second, char operation) {
         return switch (operation) {
             case '+' -> first + second;
             case '-' -> first - second;

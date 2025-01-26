@@ -1,32 +1,33 @@
 package hexlet.code.games;
 
-import java.util.Random;
+import hexlet.code.Utils;
 
-public class GCD implements Game {
-    private final Random random = new Random();
+public class GCD {
+    private static final int TEN_NUMBER = 10;
 
-    private String answer = "";
+    private static final int HUNDRED_NUMBER = 100;
 
-    public String getRule() {
+    public static String getRule() {
         return "Find the greatest common divisor of given numbers.";
     }
 
-    public String getAnswer() {
-        return this.answer;
+    public static String[][] generateRounds(int count) {
+        String[][] rounds = new String[count][2];
+
+        for (int i = 0; i < count; i++) {
+            int randomFirstNumber = Utils.getRandomNumber(0, TEN_NUMBER);
+            int randomSecondNumber = Utils.getRandomNumber(TEN_NUMBER, HUNDRED_NUMBER);
+
+            String question = randomFirstNumber + " " + randomSecondNumber;
+            String answer = Integer.toString(getGCD(randomFirstNumber, randomSecondNumber));
+
+            rounds[i] = new String[]{question, answer};
+        }
+
+        return rounds;
     }
 
-    public String getQuestion() {
-        int randomFirstNumber = this.random.nextInt(10, 100);
-        int randomSecondNumber = this.random.nextInt(100, 1000);
-
-        String question = randomFirstNumber + " " + randomSecondNumber;
-        int answer = this.getGCD(randomFirstNumber, randomSecondNumber);
-        this.answer = Integer.toString(answer);
-
-        return question;
-    }
-
-    private int getGCD(int first, int second) {
+    private static int getGCD(int first, int second) {
         if (second == 0) {
             return first;
         }

@@ -1,25 +1,25 @@
 package hexlet.code.games;
 
-import java.util.Random;
+import hexlet.code.Utils;
 
-public class Even implements Game {
-    private final Random random = new Random();
+public class Even {
+    private static final int HUNDRED_NUMBER = 100;
 
-    private String answer = "";
-
-    public String getRule() {
+    public static String getRule() {
         return "Answer 'yes' if the number is even, otherwise answer 'no'.";
     }
 
-    public String getAnswer() {
-        return this.answer;
-    }
+    public static String[][] generateRounds(int count) {
+        String[][] rounds = new String[count][2];
 
-    public String getQuestion() {
-        int randomNumber = this.random.nextInt(100);
-        String question = Integer.toString(randomNumber);
-        this.answer = randomNumber % 2 == 0 ? "yes" : "no";
+        for (int i = 0; i < count; i++) {
+            int randomNumber = Utils.getRandomNumber(0, HUNDRED_NUMBER);
+            String question = Integer.toString(randomNumber);
+            String answer = randomNumber % 2 == 0 ? "yes" : "no";
 
-        return question;
+            rounds[i] = new String[]{question, answer};
+        }
+
+        return rounds;
     }
 }

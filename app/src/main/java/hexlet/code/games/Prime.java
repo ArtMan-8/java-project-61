@@ -1,29 +1,29 @@
 package hexlet.code.games;
 
-import java.util.Random;
+import hexlet.code.Utils;
 
-public class Prime implements Game{
-    private final Random random = new Random();
+public class Prime {
+    private static final int HUNDRED_NUMBER = 100;
 
-    private String answer = "";
-
-    public String getRule() {
+    public static String getRule() {
         return "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
     }
 
-    public String getAnswer() {
-        return this.answer;
+    public static String[][] generateRounds(int count) {
+        String[][] rounds = new String[count][2];
+
+        for (int i = 0; i < count; i++) {
+            int randomNumber = Utils.getRandomNumber(0, HUNDRED_NUMBER);
+            String question = Integer.toString(randomNumber);
+            String answer = isPrime(randomNumber) ? "yes" : "no";
+
+            rounds[i] = new String[]{question, answer};
+        }
+
+        return rounds;
     }
 
-    public String getQuestion() {
-        int randomNumber = this.random.nextInt(100);
-        String question = Integer.toString(randomNumber);
-        this.answer = isPrime(randomNumber) ? "yes" : "no";
-
-        return question;
-    }
-
-    private boolean isPrime(int number) {
+    private static boolean isPrime(int number) {
         if (number < 2) {
             return false;
         }

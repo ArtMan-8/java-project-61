@@ -1,39 +1,42 @@
 package hexlet.code.games;
 
-import java.util.Random;
+import hexlet.code.Utils;
 
-public class Progression implements Game {
-    private final Random random = new Random();
+public class Progression {
+    private static final int TEN_NUMBER = 100;
 
-    private String answer = "";
+    private static final int HUNDRED_NUMBER = 100;
 
-    public String getRule() {
+    public static String getRule() {
         return "What number is missing in the progression?";
     }
 
-    public String getAnswer() {
-        return this.answer;
-    }
+    public static String[][] generateRounds(int count) {
+        String[][] rounds = new String[count][2];
 
-    public String getQuestion() {
-        int startNumber = this.random.nextInt(0, 100);
-        int progressionStep = this.random.nextInt(1, 10);
-        int progressionLength = this.random.nextInt(5, 15);
-        int hideIndex = this.random.nextInt(0, progressionLength - 1);
+        for (int i = 0; i < count; i++) {
+            int startNumber = Utils.getRandomNumber(0, HUNDRED_NUMBER);
+            int progressionStep = Utils.getRandomNumber(1, TEN_NUMBER);
+            int progressionLength = Utils.getRandomNumber(TEN_NUMBER / 2, TEN_NUMBER * 2);
+            int hideIndex = Utils.getRandomNumber(0, progressionLength - 1);
 
-        StringBuilder question = new StringBuilder();
+            StringBuilder question = new StringBuilder();
+            String answer = "";
 
-        for (int i = 0; i < progressionLength; i++) {
-            int currentNumber = startNumber + i * progressionStep;
+            for (int j = 0; j < progressionLength; j++) {
+                int currentNumber = startNumber + j * progressionStep;
 
-            if (i == hideIndex) {
-                this.answer = Integer.toString(currentNumber);
-                question.append(".. ");
-            } else {
-                question.append(currentNumber).append(" ");
+                if (j == hideIndex) {
+                    answer = Integer.toString(currentNumber);
+                    question.append(".. ");
+                } else {
+                    question.append(currentNumber).append(" ");
+                }
             }
+
+            rounds[i] = new String[]{question.toString(), answer};
         }
 
-        return question.toString();
+        return rounds;
     }
 }
