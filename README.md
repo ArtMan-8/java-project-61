@@ -8,3 +8,6 @@
 
 #### Модуль 6
 ![img.png](assets/module-6.png)
+
+#### Модуль 7
+![img.png](assets/module-7.png)
