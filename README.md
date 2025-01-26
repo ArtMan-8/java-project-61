@@ -11,3 +11,6 @@
 
 #### Модуль 7
 ![img.png](assets/module-7.png)
+
+#### Модуль 8
+![img.png](assets/module-8.png)

@@ -1,9 +1,6 @@
 package hexlet.code;
 
-import hexlet.code.games.Calc;
-import hexlet.code.games.Even;
-import hexlet.code.games.GCD;
-import hexlet.code.games.Greet;
+import hexlet.code.games.*;
 
 import java.util.Scanner;
 
@@ -15,12 +12,16 @@ public class App {
         System.out.println("2 - Even");
         System.out.println("3 - Calc");
         System.out.println("4 - GCD");
+        System.out.println("5 - Progression");
         System.out.println("0 - Exit");
         System.out.print("Your choice: ");
         int choice = scanner.nextInt();
         System.out.println();
 
         switch (choice) {
+            case 5:
+                Engine.play(new Progression());
+                break;
             case 4:
                 Engine.play(new GCD());
                 break;

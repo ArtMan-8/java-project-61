@@ -8,7 +8,7 @@ public class GCD implements Game {
     private String answer = "";
 
     public String getRule() {
-        return "What is the result of the expression?";
+        return "Find the greatest common divisor of given numbers.";
     }
 
     public String getAnswer() {
@@ -16,18 +16,14 @@ public class GCD implements Game {
     }
 
     public String getQuestion() {
-        int randomFirstNumber = this.getRandomNumber();
-        int randomSecondNumber = this.getRandomNumber();
+        int randomFirstNumber = this.random.nextInt(10, 100);
+        int randomSecondNumber = this.random.nextInt(100, 1000);
 
         String question = randomFirstNumber + " " + randomSecondNumber;
         int answer = this.getGCD(randomFirstNumber, randomSecondNumber);
         this.answer = Integer.toString(answer);
 
         return question;
-    }
-
-    private int getRandomNumber() {
-        return this.random.nextInt(100);
     }
 
     private int getGCD(int first, int second) {
