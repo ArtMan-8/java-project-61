@@ -4,13 +4,16 @@
 <hr/>
 
 #### Модуль 5
-![img.png](assets/module-5.png)
+![Модуль 5](assets/module-5.png)
 
 #### Модуль 6
-![img.png](assets/module-6.png)
+![Модуль 6](assets/module-6.png)
 
 #### Модуль 7
-![img.png](assets/module-7.png)
+![Модуль 7](assets/module-7.png)
 
 #### Модуль 8
-![img.png](assets/module-8.png)
+![Модуль 8](assets/module-8.png)
+
+#### Модуль 9
+![Модуль 9](assets/module-9.png)

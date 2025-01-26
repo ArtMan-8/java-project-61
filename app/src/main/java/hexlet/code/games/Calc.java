@@ -16,8 +16,8 @@ public class Calc implements Game {
     }
 
     public String getQuestion() {
-        int randomFirstNumber = this.getRandomNumber();
-        int randomSecondNumber = this.getRandomNumber();
+        int randomFirstNumber = this.random.nextInt(0, 50);
+        int randomSecondNumber = this.random.nextInt(50, 100);
         char operation = this.getRandomOperator();
 
         String question = randomFirstNumber + " " + operation + " " + randomSecondNumber;
@@ -25,10 +25,6 @@ public class Calc implements Game {
         this.answer = Integer.toString(answer);
 
         return question;
-    }
-
-    private int getRandomNumber() {
-        return this.random.nextInt(100);
     }
 
     private char getRandomOperator() {

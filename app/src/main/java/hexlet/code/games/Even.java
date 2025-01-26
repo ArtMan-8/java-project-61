@@ -16,14 +16,10 @@ public class Even implements Game {
     }
 
     public String getQuestion() {
-        int randomNumber = getRandomNumber();
+        int randomNumber = this.random.nextInt(100);
         String question = Integer.toString(randomNumber);
         this.answer = randomNumber % 2 == 0 ? "yes" : "no";
 
         return question;
-    }
-
-    private int getRandomNumber() {
-        return this.random.nextInt(100);
     }
 }
