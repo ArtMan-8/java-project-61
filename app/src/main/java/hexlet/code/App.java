@@ -30,19 +30,19 @@ public class App {
 
         switch (Integer.parseInt(choice)) {
             case GAME_PRIME:
-                Engine.play(Prime.getRule(), Prime.generateRounds(Engine.GAME_ROUNDS));
+                Prime.play();
                 break;
             case GAME_PROGRESSION:
-                Engine.play(Progression.getRule(), Progression.generateRounds(Engine.GAME_ROUNDS));
+                Progression.play();
                 break;
             case GAME_GCD:
-                Engine.play(GCD.getRule(), GCD.generateRounds(Engine.GAME_ROUNDS));
+                GCD.play();
                 break;
             case GAME_CALC:
-                Engine.play(Calc.getRule(), Calc.generateRounds(Engine.GAME_ROUNDS));
+                Calc.play();
                 break;
             case GAME_EVEN:
-                Engine.play(Even.getRule(), Even.generateRounds(Engine.GAME_ROUNDS));
+                Even.play();
                 break;
             case GAME_GREET:
                 Greet.user();

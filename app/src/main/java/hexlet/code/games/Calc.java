@@ -1,5 +1,6 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
 import hexlet.code.Utils;
 
 public class Calc {
@@ -7,11 +8,11 @@ public class Calc {
 
     private static final int TEN_NUMBER = 10;
 
-    public static String getRule() {
+    private static String getRule() {
         return "What is the result of the expression?";
     }
 
-    public static String[][] generateRounds(int count) {
+    private static String[][] generateRounds(int count) {
         String[][] rounds = new String[count][2];
 
         for (int i = 0; i < count; i++) {
@@ -41,5 +42,9 @@ public class Calc {
             case '*' -> first * second;
             default -> 0;
         };
+    }
+
+    public static void play() {
+        Engine.start(getRule(), generateRounds(Engine.GAME_ROUNDS));
     }
 }

@@ -3,8 +3,11 @@ package hexlet.code;
 public class Engine {
     public static final int GAME_ROUNDS = 3;
 
-    public static void play(String rule, String[][] rounds) {
-        Greet.user();
+    public static void start(String rule, String[][] rounds) {
+        System.out.println("Welcome to the Brain Games!");
+        System.out.print("May I have your name? ");
+        String userName = Utils.readNextLine();
+        System.out.println("Hello, " + userName + "!");
 
         System.out.println(rule);
 
@@ -27,9 +30,9 @@ public class Engine {
         }
 
         if (gameRound == GAME_ROUNDS) {
-            System.out.println("Congratulations, " + Greet.getUserName() + "!");
+            System.out.println("Congratulations, " + userName + "!");
         } else {
-            System.out.println("Let's try again, " + Greet.getUserName() + "!");
+            System.out.println("Let's try again, " + userName + "!");
         }
     }
 }

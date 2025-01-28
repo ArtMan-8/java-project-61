@@ -1,5 +1,6 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
 import hexlet.code.Utils;
 
 public class Progression {
@@ -7,11 +8,11 @@ public class Progression {
 
     private static final int HUNDRED_NUMBER = 100;
 
-    public static String getRule() {
+    private static String getRule() {
         return "What number is missing in the progression?";
     }
 
-    public static String[][] generateRounds(int count) {
+    private static String[][] generateRounds(int count) {
         String[][] rounds = new String[count][2];
 
         for (int i = 0; i < count; i++) {
@@ -38,5 +39,9 @@ public class Progression {
         }
 
         return rounds;
+    }
+
+    public static void play() {
+        Engine.start(getRule(), generateRounds(Engine.GAME_ROUNDS));
     }
 }
