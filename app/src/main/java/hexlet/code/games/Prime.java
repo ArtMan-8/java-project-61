@@ -5,10 +5,7 @@ import hexlet.code.Utils;
 
 public class Prime {
     private static final int HUNDRED_NUMBER = 100;
-
-    private static String getRule() {
-        return "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-    }
+    private static final String GAME_RULE = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
 
     private static String[][] generateRounds(int count) {
         String[][] rounds = new String[count][2];
@@ -39,6 +36,6 @@ public class Prime {
     }
 
     public static void play() {
-        Engine.start(getRule(), generateRounds(Engine.GAME_ROUNDS));
+        Engine.start(GAME_RULE, generateRounds(Engine.GAME_ROUNDS));
     }
 }

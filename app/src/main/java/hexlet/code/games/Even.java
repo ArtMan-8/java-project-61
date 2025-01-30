@@ -5,10 +5,7 @@ import hexlet.code.Utils;
 
 public class Even {
     private static final int HUNDRED_NUMBER = 100;
-
-    private static String getRule() {
-        return "Answer 'yes' if the number is even, otherwise answer 'no'.";
-    }
+    private static final String GAME_RULE = "Answer 'yes' if the number is even, otherwise answer 'no'.";
 
     private static String[][] generateRounds(int count) {
         String[][] rounds = new String[count][2];
@@ -25,6 +22,6 @@ public class Even {
     }
 
     public static void play() {
-        Engine.start(getRule(), generateRounds(Engine.GAME_ROUNDS));
+        Engine.start(GAME_RULE, generateRounds(Engine.GAME_ROUNDS));
     }
 }

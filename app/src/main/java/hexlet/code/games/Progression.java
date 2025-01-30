@@ -4,12 +4,18 @@ import hexlet.code.Engine;
 import hexlet.code.Utils;
 
 public class Progression {
-    private static final int TEN_NUMBER = 100;
-
+    private static final int TEN_NUMBER = 10;
     private static final int HUNDRED_NUMBER = 100;
+    private static final String GAME_RULE = "What number is missing in the progression?";
 
-    private static String getRule() {
-        return "What number is missing in the progression?";
+    private static String[] createProgression(int start, int step, int length) {
+        String[] numbers = new String[length];
+
+        for (int i = 0; i < length; i++) {
+            numbers[i] = String.valueOf(start + i * step);
+        }
+
+        return numbers;
     }
 
     private static String[][] generateRounds(int count) {
@@ -21,27 +27,18 @@ public class Progression {
             int progressionLength = Utils.getRandomNumber(TEN_NUMBER / 2, TEN_NUMBER * 2);
             int hideIndex = Utils.getRandomNumber(0, progressionLength - 1);
 
-            StringBuilder question = new StringBuilder();
-            String answer = "";
+            String answer = String.valueOf(startNumber + hideIndex * progressionStep);
 
-            for (int j = 0; j < progressionLength; j++) {
-                int currentNumber = startNumber + j * progressionStep;
+            String[] numbers = createProgression(startNumber, progressionStep, progressionLength);
+            numbers[hideIndex] = "..";
 
-                if (j == hideIndex) {
-                    answer = Integer.toString(currentNumber);
-                    question.append(".. ");
-                } else {
-                    question.append(currentNumber).append(" ");
-                }
-            }
-
-            rounds[i] = new String[]{question.toString(), answer};
+            rounds[i] = new String[]{String.join(" ", numbers), answer};
         }
 
         return rounds;
     }
 
     public static void play() {
-        Engine.start(getRule(), generateRounds(Engine.GAME_ROUNDS));
+        Engine.start(GAME_RULE, generateRounds(Engine.GAME_ROUNDS));
     }
 }

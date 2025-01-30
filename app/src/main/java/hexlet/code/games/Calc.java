@@ -5,12 +5,8 @@ import hexlet.code.Utils;
 
 public class Calc {
     private static final int FIVE_NUMBER = 5;
-
     private static final int TEN_NUMBER = 10;
-
-    private static String getRule() {
-        return "What is the result of the expression?";
-    }
+    private static final String GAME_RULE = "What is the result of the expression?";
 
     private static String[][] generateRounds(int count) {
         String[][] rounds = new String[count][2];
@@ -40,11 +36,11 @@ public class Calc {
             case '+' -> first + second;
             case '-' -> first - second;
             case '*' -> first * second;
-            default -> 0;
+            default -> throw new RuntimeException("Unknown operator: " + operation);
         };
     }
 
     public static void play() {
-        Engine.start(getRule(), generateRounds(Engine.GAME_ROUNDS));
+        Engine.start(GAME_RULE, generateRounds(Engine.GAME_ROUNDS));
     }
 }
